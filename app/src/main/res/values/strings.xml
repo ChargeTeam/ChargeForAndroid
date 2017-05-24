@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Charge</string>
+    <string name="unknow">未知</string>
+    <string name="srl_keep_pull_up">继续向上拉</string>
+    <string name="srl_keep_pull_down">继续向下拉</string>
+    <string name="srl_release_to_refresh">松开刷新</string>
+    <string name="md5error">MD5错误</string>
+</resources>

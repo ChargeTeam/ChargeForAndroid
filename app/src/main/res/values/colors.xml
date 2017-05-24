@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#ffffff</color>
+    <color name="gray_c">#CCCCCC</color>
+    <color name="black">#000000</color>
+
+    <color name="srl_colorPrimary">#3F51B5</color>
+    <color name="srl_colorPrimaryDark">#303F9F</color>
+    <color name="srl_colorAccent">#515151</color>
+
+    <color name="srl_text_color">#515151</color>
+    <color name="srl_pull_background">#FFFFFF</color>
+</resources>
