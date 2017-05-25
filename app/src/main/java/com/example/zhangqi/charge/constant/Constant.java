@@ -8,7 +8,7 @@ public class Constant {
 
 
     public static final String SIGN = "jhh";
-    public static String BASEURL = "http://wwww.onionsss.com:8080/onion/";
+    public static String BASEURL = "http://www.onionsss.com:8080/onion/";
     /**
      * 错误
      */
@@ -20,4 +20,5 @@ public class Constant {
     public static final String LOGIN_FAILD = "0002";
     public static final String LOGIN_UNREGISTER = "0004";
     public static final String REGEX_MOBILE_EXACT = "^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|(147))\\d{8}$";
+
 }

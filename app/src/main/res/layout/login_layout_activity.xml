@@ -144,9 +144,9 @@
         android:id="@+id/tv_terms"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/bt_sign_in"
+        android:layout_above="@+id/ll"
+        android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="45dp"
         android:text="terms and conditions"
         android:textColor="@color/colorGray"
         android:textSize="16dp" />
@@ -155,13 +155,15 @@
         android:id="@+id/view_up3"
         android:layout_width="150dp"
         android:layout_height="0.5dp"
-        android:layout_below="@+id/tv_terms"
+        android:layout_above="@+id/ll"
+        android:layout_marginBottom="20dp"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="35dp"
         android:layout_marginRight="35dp"
         android:background="@color/colorDarkGray"></View>
 
     <LinearLayout
+        android:id="@+id/ll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

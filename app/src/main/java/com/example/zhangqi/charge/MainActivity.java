@@ -24,6 +24,6 @@ public class MainActivity extends SimpleBaseActivity {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.layout_login_activity;
+        return R.layout.activity_main;
     }
 }

@@ -26,7 +26,7 @@ public abstract class MessageActivity extends ConfigBaseActivity {
         initDialog();
     }
 
-    private void initDialog() {
+    protected void initDialog() {
         mProgressDialog = new ProgressDialog(this,
                 R.style.AppTheme_Dark_Dialog);
         mProgressDialog.setIndeterminate(true);

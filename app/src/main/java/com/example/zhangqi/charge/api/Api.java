@@ -14,7 +14,6 @@ import rx.Observable;
  */
 public interface Api {
 
-
     /**
      * 登录
      * @param phone

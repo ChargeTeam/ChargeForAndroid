@@ -19,7 +19,6 @@ public abstract class SimpleBaseActivity extends RxBaseActivity{
         setContentView(getLayoutId());
         ButterKnife.bind(this);
 
-
         initView();
         
         initData();
@@ -48,6 +47,7 @@ public abstract class SimpleBaseActivity extends RxBaseActivity{
     protected void onDestroy() {
         super.onDestroy();
         ButterKnife.unbind(this);
+
     }
 
 }
