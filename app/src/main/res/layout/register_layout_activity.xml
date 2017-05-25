@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/colorGray3"
+    >
+
+    <TextView
+        android:id="@+id/tv_sign_up"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign up"
+        android:textSize="55dp"
+        android:textColor="@color/colorGray2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="110dp"/>
+
+    <ImageView
+        android:id="@+id/iv_phone"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="35dp"
+        android:src="@drawable/phone_icon" />
+
+    <EditText
+        android:id="@+id/et_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/iv_phone"
+        android:layout_centerVertical="true"
+        android:background="@null"
+        android:layout_marginLeft="5dp"
+        android:hint="phone"
+        android:inputType="phone"
+        android:maxLines="1"
+        android:textColor="@color/colorGray2"
+        android:textColorHint="@color/colorGray2"
+        android:textCursorDrawable="@null"
+        android:textSize="20dp" />
+
+    <View
+        android:id="@+id/view_up2"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/et_phone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorDarkGray"></View>
+
+    <at.markushi.ui.CircleButton
+        android:id="@+id/bt_next"
+        android:layout_width="84dip"
+        android:layout_height="84dip"
+        android:src="@drawable/white_arrow_point"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/view_up2"
+        android:layout_marginTop="65dp"
+        app:cb_color="@color/black"
+        app:cb_pressedRingWidth="8dip" />
+
+    <TextView
+        android:id="@+id/tv_terms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/bt_sign_in"
+        android:layout_marginBottom="40dp"
+        android:text="terms and conditions"
+        android:textColor="@color/colorGray"
+        android:textSize="16dp" />
+
+    <View
+        android:id="@+id/view_up3"
+        android:layout_width="150dp"
+        android:layout_height="0.5dp"
+        android:layout_above="@+id/bt_sign_in"
+        android:layout_marginBottom="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:background="@color/colorDarkGray"></View>
+
+    <Button
+        android:id="@+id/bt_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorGray4"
+        android:text="sign in"
+        android:textColor="@color/white"
+        />
+
+</com.zhy.autolayout.AutoRelativeLayout>

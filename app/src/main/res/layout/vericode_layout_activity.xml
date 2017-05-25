@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGray3"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:ver="http://schemas.android.com/apk/res-auto"
+    >
+
+    <at.markushi.ui.CircleButton
+        android:id="@+id/bt_circle"
+        android:layout_width="84dip"
+        android:layout_height="84dip"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/view_up2"
+        android:layout_marginTop="65dp"
+        app:cb_color="@color/black"
+        app:cb_pressedRingWidth="8dip" />
+
+    <TextView
+        android:id="@+id/tv_vericode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verification code"
+        android:textSize="32dp"
+        android:textColor="@color/colorGray2"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/bt_circle"
+        android:layout_marginTop="40dp"/>
+
+    <TextView
+        android:id="@+id/tv_terms_vericode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/tv_vericode"
+        android:layout_marginTop="5dp"
+        android:text="enter the verification code we send"
+        android:textColor="@color/colorGray"
+        android:textSize="18dp" />
+
+    <com.example.zhangqi.charge.util.VerificationCodeInputUtil
+        android:id="@+id/vericode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        ver:box_bg_normal="@drawable/vericode_edit_bg_normal"
+        ver:box="4"
+        ver:child_h_padding="20dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        />
+
+    <com.dd.CircularProgressButton
+        android:id="@+id/bt_submit"
+        android:layout_width="130dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/vericode"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="75dp"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:cpb_cornerRadius="48dp"
+        app:cpb_selectorIdle="@color/black"
+        app:cpb_textIdle="Submit"
+        />
+
+    <TextView
+        android:id="@+id/tv_terms_resend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/bt_submit"
+        android:layout_marginTop="30dp"
+        android:text="Resend code"
+        android:textColor="@color/colorGray2"
+        android:textSize="18dp" />
+
+    <View
+        android:id="@+id/view_up4"
+        android:layout_width="105dp"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/tv_terms_resend"
+        android:layout_marginBottom="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:background="@color/colorGray2"></View>
+
+    <TextView
+        android:id="@+id/tv_terms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/bt_sign_in"
+        android:layout_marginBottom="20dp"
+        android:text="terms and conditions"
+        android:textColor="@color/colorGray"
+        android:textSize="16dp" />
+
+    <View
+        android:id="@+id/view_up3"
+        android:layout_width="150dp"
+        android:layout_height="0.5dp"
+        android:layout_above="@+id/bt_sign_in"
+        android:layout_marginBottom="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:background="@color/colorDarkGray"></View>
+
+    <Button
+        android:id="@+id/bt_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorGray4"
+        android:text="sign in"
+        android:textColor="@color/white"
+        />
+
+</com.zhy.autolayout.AutoRelativeLayout>

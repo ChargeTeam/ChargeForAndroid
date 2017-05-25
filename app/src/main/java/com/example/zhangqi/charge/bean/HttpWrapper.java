@@ -1,6 +1,7 @@
 package com.example.zhangqi.charge.bean;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * 核心包装类 封装数据集合
@@ -24,6 +25,19 @@ public class HttpWrapper<T> implements Serializable {
      */
     public T data;
 
+    /**
+     * 当前请求日期（客户端可不接受）
+     */
+    private Date date;
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     public String getCode() {
         return code;
     }
@@ -46,5 +60,15 @@ public class HttpWrapper<T> implements Serializable {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "HttpWrapper{" +
+                "code='" + code + '\'' +
+                ", info='" + info + '\'' +
+                ", data=" + data +
+                ", date=" + date +
+                '}';
     }
 }
