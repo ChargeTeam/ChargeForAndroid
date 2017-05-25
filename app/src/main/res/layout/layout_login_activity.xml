@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background"
+    >
+
+    <at.markushi.ui.CircleButton
+        android:id="@+id/bt_circle"
+        android:layout_width="84dip"
+        android:layout_height="84dip"
+        android:layout_marginTop="73dp"
+        android:layout_centerHorizontal="true"
+        app:cb_color="@color/black"
+        app:cb_pressedRingWidth="8dip" />
+
+    <ImageView
+        android:id="@+id/iv_username"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="190dp"
+        android:src="@drawable/user_icon" />
+
+    <EditText
+        android:id="@+id/et_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="195dp"
+        android:layout_toRightOf="@+id/iv_username"
+        android:background="@null"
+        android:hint="Phone"
+        android:maxLines="1"
+        android:textColor="@color/colorGray2"
+        android:textColorHint="@color/colorGray2"
+        android:textCursorDrawable="@null"
+        android:textSize="20dp" />
+
+    <View
+        android:id="@+id/view_up"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/et_username"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorDarkGray"></View>
+
+    <ImageView
+        android:id="@+id/iv_password"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/view_up"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/password_icon" />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et_username"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="28dp"
+        android:layout_toRightOf="@+id/iv_username"
+        android:background="@null"
+        android:hint="Password"
+        android:maxLines="1"
+        android:inputType="textPassword"
+        android:textColor="@color/colorGray2"
+        android:textColorHint="@color/colorGray2"
+        android:textCursorDrawable="@null"
+        android:textSize="20dp" />
+
+    <View
+        android:id="@+id/view_up2"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/et_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/colorDarkGray"></View>
+
+    <TextView
+        android:id="@+id/tv_sign_in_with"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_forgot_password"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Sign in with"
+        android:textColor="@color/colorGray2"
+        android:textSize="16dp" />
+
+    <ImageView
+        android:id="@+id/iv_qq"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_below="@+id/tv_sign_in_with"
+        android:layout_marginRight="35dp"
+        android:layout_marginTop="15dp"
+        android:layout_toLeftOf="@+id/iv_weixin"
+        android:src="@drawable/qq_icon" />
+
+    <ImageView
+        android:id="@+id/iv_weixin"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_below="@+id/tv_sign_in_with"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/weixin_icon" />
+
+    <ImageView
+        android:id="@+id/iv_xinlang"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_below="@+id/tv_sign_in_with"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="15dp"
+        android:layout_toRightOf="@+id/iv_weixin"
+        android:src="@drawable/xinlang_icon" />
+
+    <com.dd.CircularProgressButton
+        android:id="@+id/bt_sign_in"
+        android:layout_width="130dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/iv_weixin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="35dp"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:cpb_cornerRadius="48dp"
+        app:cpb_selectorIdle="@color/black"
+        app:cpb_textIdle="sign  in" />
+
+    <TextView
+        android:id="@+id/tv_terms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/bt_sign_in"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="45dp"
+        android:text="terms and conditions"
+        android:textColor="@color/colorGray"
+        android:textSize="16dp" />
+
+    <View
+        android:id="@+id/view_up3"
+        android:layout_width="150dp"
+        android:layout_height="0.5dp"
+        android:layout_below="@+id/tv_terms"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="35dp"
+        android:background="@color/colorDarkGray"></View>
+
+    <com.zhy.autolayout.AutoLinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_sign_up"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sign up"
+            android:textColor="@color/colorGray2"
+            android:textSize="24dp" />
+
+        <ImageView
+            android:id="@+id/iv_arrow_point"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/tv_sign_up"
+            android:src="@drawable/arrow_point_icon"
+
+            />
+
+    </com.zhy.autolayout.AutoLinearLayout>
+
+    <TextView
+        android:id="@+id/tv_forgot_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="forgot password?"
+        android:layout_alignTop="@+id/view_up2"
+        android:layout_alignLeft="@+id/view_up2"
+        android:layout_alignStart="@+id/view_up2"
+        android:layout_marginTop="3dp"/>
+
+</com.zhy.autolayout.AutoRelativeLayout>
