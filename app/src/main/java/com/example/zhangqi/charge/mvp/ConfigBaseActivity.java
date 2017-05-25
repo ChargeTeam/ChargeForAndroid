@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import com.example.zhangqi.charge.global.AppCenter;
+
 import java.io.Serializable;
 import java.util.Map;
 
@@ -19,7 +21,7 @@ public abstract class ConfigBaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        AppCenter.addActivity(this);
     }
 
     @Override
@@ -35,6 +37,7 @@ public abstract class ConfigBaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        AppCenter.removeActivity(this);
     }
 
 
@@ -55,4 +58,6 @@ public abstract class ConfigBaseActivity extends AppCompatActivity {
         if(isFinsh)
             finish();
     }
+
+
 }
