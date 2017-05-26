@@ -5,6 +5,7 @@ import android.content.Context;
 import com.example.zhangqi.charge.api.RetrofitUtils;
 import com.example.zhangqi.charge.bean.HttpWrapper;
 import com.example.zhangqi.charge.bean.User;
+import com.example.zhangqi.charge.logger.Logger;
 import com.example.zhangqi.charge.manager.Result;
 import com.example.zhangqi.charge.manager.TransformerUtil;
 
@@ -40,10 +41,12 @@ public class LoginPresenter implements LoginContract.Presenter {
                 .subscribe(new Result<HttpWrapper<User>>() {
                     @Override
                     protected void onSuccess(HttpWrapper<User> o) {
-                        mView.showData(o.getData());
+                        mView.loginSuccess(o.getData());
+                        mView.dissDialog();
+                    }
 
-                        System.out.print(o.getData()+"*********************************************************************");
-
+                    @Override
+                    protected void onFaild(HttpWrapper<User> o) {
                         mView.dissDialog();
                     }
                 }));

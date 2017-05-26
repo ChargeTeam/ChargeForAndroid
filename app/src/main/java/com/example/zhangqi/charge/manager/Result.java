@@ -51,10 +51,6 @@ public abstract class Result<T extends HttpWrapper> extends Subscriber<T> {
                 ToastUtil.showShort(AppCenter.sContext,wrapper.info);
             }
 
-            if(Constant.PARAMS_ERROR.equals(wrapper.code)){
-                ToastUtil.showShort(AppCenter.sContext,wrapper.info);
-            }
-
             onFaildOrError(wrapper,null,true);
             onFaild(wrapper);
         }else if(Constant.SUCCESS_CODE.equals(wrapper.code)){

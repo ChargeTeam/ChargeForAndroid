@@ -34,19 +34,19 @@ public abstract class MessageActivity extends ConfigBaseActivity {
         mProgressDialog.setCancelable(false);
     }
 
-    protected void showMessage(String msg){
+    protected void Message(String msg){
         ToastUtil.showShort(this,msg);
     }
 
-    protected void showMessage(int strId){
+    protected void Message(int strId){
         ToastUtil.showShort(this,getString(strId));
     }
 
-    protected void showMessageLong(String msg){
+    protected void MessageLong(String msg){
         ToastUtil.showLong(this,msg);
     }
 
-    protected void showMessageLong(int strId){
+    protected void MessageLong(int strId){
         ToastUtil.showLong(this,getString(strId));
     }
 

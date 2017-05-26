@@ -13,7 +13,6 @@ import com.example.zhangqi.charge.R;
 import com.example.zhangqi.charge.bean.User;
 import com.example.zhangqi.charge.constant.UserConstant;
 import com.example.zhangqi.charge.global.AppCenter;
-import com.example.zhangqi.charge.logger.Logger;
 import com.example.zhangqi.charge.mvp.activity.SimpleBaseActivity;
 
 import butterknife.Bind;
@@ -54,7 +53,6 @@ public class LoginActivity extends SimpleBaseActivity implements LoginContract.V
                 mPresenter.login(etUsername.getText().toString(), etPassword.getText().toString());
                 break;
             case R.id.iv_qq:
-                startActivity(MainActivity.class);
                 break;
             case R.id.iv_weixin:
                 break;
@@ -73,7 +71,6 @@ public class LoginActivity extends SimpleBaseActivity implements LoginContract.V
 
     @Override
     protected void initData() {
-        Logger.i(etUsername.getText().toString(), etPassword.getText().toString());
     }
 
     @Override
@@ -103,22 +100,12 @@ public class LoginActivity extends SimpleBaseActivity implements LoginContract.V
     }
 
     @Override
-    public void showData(User data) {
-        AppCenter.sSpUtil.putString(UserConstant.USER_ID,data.getUserId());
-//        startActivity(MainActivity.class);
+    public void loginSuccess(User user) {
+        AppCenter.sSpUtil.putString(UserConstant.USER_ID,user.getUserId());
+        Message("登录成功");
         Intent intent=new Intent(this,MainActivity.class);
         startActivity(intent);
         finish();
     }
 
-    public void startActivity(Class<?> cls){
-        Intent intent=new Intent(this,cls);
-        startActivity(intent);
-        finish();
-    }
-
-    public void startActivityForResult(Class<?> cls){
-        Intent intent=new Intent(this,cls);
-        startActivity(intent);
-    }
 }
