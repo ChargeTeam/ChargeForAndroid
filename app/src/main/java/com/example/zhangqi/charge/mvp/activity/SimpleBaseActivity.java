@@ -1,5 +1,7 @@
 package com.example.zhangqi.charge.mvp.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -48,6 +50,19 @@ public abstract class SimpleBaseActivity extends RxBaseActivity{
         super.onDestroy();
         ButterKnife.unbind(this);
 
+    }
+
+    protected void startActivity(Context context,Class<?> cls){
+        Intent intent=new Intent(context,cls);
+        startActivity(intent);
+        finish();
+    }
+
+    protected void startActivityWithData(Context context,Class<?> cls,Bundle bundle){
+        Intent intent=new Intent(context,cls);
+        intent.putExtras(bundle);
+        startActivity(intent);
+        finish();
     }
 
 }

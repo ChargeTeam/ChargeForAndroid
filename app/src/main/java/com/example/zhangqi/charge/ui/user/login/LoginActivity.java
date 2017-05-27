@@ -1,6 +1,5 @@
 package com.example.zhangqi.charge.ui.user.login;
 
-import android.content.Intent;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -14,6 +13,7 @@ import com.example.zhangqi.charge.bean.User;
 import com.example.zhangqi.charge.constant.UserConstant;
 import com.example.zhangqi.charge.global.AppCenter;
 import com.example.zhangqi.charge.mvp.activity.SimpleBaseActivity;
+import com.example.zhangqi.charge.ui.user.register.PhoneInputActivity;
 
 import butterknife.Bind;
 
@@ -61,6 +61,7 @@ public class LoginActivity extends SimpleBaseActivity implements LoginContract.V
             case R.id.tv_terms:
                 break;
             case R.id.ll:
+                startActivity(this, PhoneInputActivity.class);
                 break;
             case R.id.tv_forgot_password:
                 break;
@@ -103,9 +104,7 @@ public class LoginActivity extends SimpleBaseActivity implements LoginContract.V
     public void loginSuccess(User user) {
         AppCenter.sSpUtil.putString(UserConstant.USER_ID,user.getUserId());
         Message("登录成功");
-        Intent intent=new Intent(this,MainActivity.class);
-        startActivity(intent);
-        finish();
+        startActivity(this, MainActivity.class);
     }
 
 }

@@ -72,6 +72,7 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@+id/bt_submit"
         android:layout_marginTop="30dp"
+        android:visibility="gone"
         android:text="Resend code"
         android:textColor="@color/colorGray2"
         android:textSize="18dp" />

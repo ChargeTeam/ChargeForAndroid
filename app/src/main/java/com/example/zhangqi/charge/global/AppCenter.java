@@ -17,6 +17,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.LinkedList;
 
+import cn.smssdk.SMSSDK;
+
 /**
  * Created by zhangqi on 2017/5/3.
  */
@@ -34,6 +36,12 @@ public class AppCenter extends Application{
         sContext = getApplicationContext();
         sSpUtil = new SpUtil(this,"config");
         mActivities = new LinkedList<>();
+
+        /**
+         * SMS初始化
+         */
+        SMSSDK.initSDK(this, "1e2d4db41dce3", "d964eca214959a818bf56bc1e8f16899");
+
         /**
          * 百度推送
          */
