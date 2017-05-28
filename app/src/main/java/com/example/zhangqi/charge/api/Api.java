@@ -24,5 +24,15 @@ public interface Api {
     @POST("user/login.action")
     Observable<HttpWrapper<User>> login(@Field("phone") String phone, @Field("password") String pwd);
 
+    /**
+     * 注册
+     * @param phone
+     * @param pwd
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("user/register.action")
+    Observable<HttpWrapper<User>> register(@Field("phone") String phone, @Field("password") String pwd);
+
 }
 

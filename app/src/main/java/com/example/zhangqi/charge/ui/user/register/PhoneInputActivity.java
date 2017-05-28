@@ -56,8 +56,12 @@ public class PhoneInputActivity extends SimpleBaseActivity implements View.OnCli
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.bt_next:
-                bundle.putString("phone", etPhone.getText().toString());
-                startActivityWithData(this,VeriCodeActivity.class,bundle);
+                if(etPhone.getText().toString().equals("")){
+                    Message("手机号不能为空!");
+                }else {
+                    bundle.putString("phone", etPhone.getText().toString());
+                    startActivityWithData(this,VeriCodeActivity.class,bundle);
+                }
                 break;
             case R.id.tv_terms:
                 break;

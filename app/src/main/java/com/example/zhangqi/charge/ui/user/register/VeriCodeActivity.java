@@ -1,9 +1,9 @@
 package com.example.zhangqi.charge.ui.user.register;
 
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.dd.CircularProgressButton;
 import com.example.zhangqi.charge.R;
@@ -42,10 +42,13 @@ public class VeriCodeActivity extends SimpleBaseActivity implements View.OnClick
     @Bind(R.id.bt_sign_in)
     Button btSignIn;
 
+    Bundle bundle;
+
     private VeriCodeContract.Presenter mPresenter;
 
     @Override
     protected void initView() {
+        bundle=new Bundle();
         phone = this.getIntent().getExtras().getString("phone");
         /**
          * 请求发送验证码
@@ -53,20 +56,6 @@ public class VeriCodeActivity extends SimpleBaseActivity implements View.OnClick
         mPresenter.submitVerificationCode("86", phone, new OnSendMessageHandler() {
             @Override
             public boolean onSendMessage(String s, String s1) {
-//                Handler handler = new Handler() {
-//                    @Override
-//                    public void handleMessage(Message msg) {
-//                        super.handleMessage(msg);
-//                        if (msg.what == 1)
-//                            Message("回调完成");
-//                        else if (msg.what == 2)
-//                            Message("提交验证码成功");
-//                        else if (msg.what == 3)
-//                            Message("获取验证码成功");
-//                        else if (msg.what == 4)
-//                            Message("返回支持发送国家验证码");
-//                    }
-//                };
                 return false;
             }
         });
@@ -133,41 +122,13 @@ public class VeriCodeActivity extends SimpleBaseActivity implements View.OnClick
         mPresenter = checkNotNull(presenter);
     }
 
-    @Override
-    public void submitSuccess() {
-        Message("验证成功");
-        startActivity(this, InfoInputActivity.class);
-    }
-
     EventHandler eh = new EventHandler() {
-
         @Override
         public void afterEvent(int event, int result, Object data) {
-
-                        Observable.just(event)
-                                .subscribeOn(Schedulers.io())
-                                .observeOn(AndroidSchedulers.mainThread())
-                                .subscribe(observer);
-
-                        if (result == SMSSDK.RESULT_COMPLETE) {
-                            //回调完成
-                         //   handler.sendEmptyMessage(1);
-                            if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
-                                //提交验证码成功
-                           //     handler.sendEmptyMessage(2);
-//                                Message("获取验证码成功");
-                            } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
-                                //获取验证码成功
-                            //    handler.sendEmptyMessage(3);
-//                                Message("获取验证码成功");
-                            //    Toast.makeText(VeriCodeActivity.this,"QQQQ",Toast.LENGTH_SHORT).show();
-                            } else if (event == SMSSDK.EVENT_GET_SUPPORTED_COUNTRIES) {
-                                //返回支持发送验证码的国家列表
-                            //    handler.sendEmptyMessage(4);
-                            }
-                        } else {
-                            ((Throwable) data).printStackTrace();
-                        }
+            Observable.just(event)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(observer);
         }
     };
 
@@ -184,13 +145,16 @@ public class VeriCodeActivity extends SimpleBaseActivity implements View.OnClick
 
         @Override
         public void onNext(Integer s) {
-            Toast.makeText(VeriCodeActivity.this,""+s,Toast.LENGTH_SHORT).show();
             if (s == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
-                //提交验证码成功
-                Message("获取验证码成功");
+
+                Message("提交验证码成功");
+                bundle.putString("phone", phone);
+                startActivityWithData(VeriCodeActivity.this,InfoInputActivity.class,bundle);
+
             } else if (s == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
-                //获取验证码成功
+
                 Message("获取验证码成功");
+
             } else if (s == SMSSDK.EVENT_GET_SUPPORTED_COUNTRIES) {
                 //返回支持发送验证码的国家列表
             }

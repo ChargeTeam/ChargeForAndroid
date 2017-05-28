@@ -13,7 +13,6 @@ public class VeriCodeContract {
 
     interface View extends BaseView<Presenter> {
 
-        void submitSuccess();
     }
 
     interface Presenter extends BasePresenter {
