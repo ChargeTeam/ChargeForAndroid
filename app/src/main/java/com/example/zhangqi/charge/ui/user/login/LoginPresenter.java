@@ -1,11 +1,10 @@
-package com.example.zhangqi.charge.ui.user.login;
+package com.example.zhangqi.charge.server.login;
 
 import android.content.Context;
 
 import com.example.zhangqi.charge.api.RetrofitUtils;
 import com.example.zhangqi.charge.bean.HttpWrapper;
 import com.example.zhangqi.charge.bean.User;
-import com.example.zhangqi.charge.logger.Logger;
 import com.example.zhangqi.charge.manager.Result;
 import com.example.zhangqi.charge.manager.TransformerUtil;
 

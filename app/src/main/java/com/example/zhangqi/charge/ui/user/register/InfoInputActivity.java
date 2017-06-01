@@ -1,4 +1,4 @@
-package com.example.zhangqi.charge.ui.user.register;
+package com.example.zhangqi.charge.server.register;
 
 import android.view.View;
 import android.widget.Button;
@@ -11,7 +11,7 @@ import com.example.zhangqi.charge.bean.User;
 import com.example.zhangqi.charge.constant.UserConstant;
 import com.example.zhangqi.charge.global.AppCenter;
 import com.example.zhangqi.charge.mvp.activity.SimpleBaseActivity;
-import com.example.zhangqi.charge.ui.user.login.LoginActivity;
+import com.example.zhangqi.charge.server.login.LoginActivity;
 
 import at.markushi.ui.CircleButton;
 import butterknife.Bind;

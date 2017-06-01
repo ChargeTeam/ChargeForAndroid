@@ -1,4 +1,4 @@
-package com.example.zhangqi.charge.ui.user.register;
+package com.example.zhangqi.charge.server.register;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,8 +8,8 @@ import android.widget.TextView;
 
 import com.example.zhangqi.charge.R;
 import com.example.zhangqi.charge.mvp.activity.SimpleBaseActivity;
-import com.example.zhangqi.charge.ui.user.login.LoginActivity;
-import com.example.zhangqi.charge.ui.user.vericode.VeriCodeActivity;
+import com.example.zhangqi.charge.server.login.LoginActivity;
+import com.example.zhangqi.charge.server.vericode.VeriCodeActivity;
 
 import at.markushi.ui.CircleButton;
 import butterknife.Bind;

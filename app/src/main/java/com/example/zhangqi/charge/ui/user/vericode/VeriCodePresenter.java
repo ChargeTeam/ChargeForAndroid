@@ -1,4 +1,4 @@
-package com.example.zhangqi.charge.ui.user.vericode;
+package com.example.zhangqi.charge.server.vericode;
 
 import android.content.Context;
 

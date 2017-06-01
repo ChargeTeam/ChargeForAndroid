@@ -1,4 +1,4 @@
-package com.example.zhangqi.charge.ui.user.vericode;
+package com.example.zhangqi.charge.server.vericode;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,9 +8,9 @@ import android.widget.TextView;
 import com.dd.CircularProgressButton;
 import com.example.zhangqi.charge.R;
 import com.example.zhangqi.charge.mvp.activity.SimpleBaseActivity;
-import com.example.zhangqi.charge.ui.user.forgot_password.ModifyPwdActivity;
-import com.example.zhangqi.charge.ui.user.login.LoginActivity;
-import com.example.zhangqi.charge.ui.user.register.InfoInputActivity;
+import com.example.zhangqi.charge.server.forgot_password.ModifyPwdActivity;
+import com.example.zhangqi.charge.server.login.LoginActivity;
+import com.example.zhangqi.charge.server.register.InfoInputActivity;
 import com.example.zhangqi.charge.util.VerificationCodeInputUtil;
 
 import butterknife.Bind;

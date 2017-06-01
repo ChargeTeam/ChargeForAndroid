@@ -1,4 +1,4 @@
-package com.example.zhangqi.charge.ui.user.forgot_password;
+package com.example.zhangqi.charge.server.forgot_password;
 
 import android.content.Context;
 
