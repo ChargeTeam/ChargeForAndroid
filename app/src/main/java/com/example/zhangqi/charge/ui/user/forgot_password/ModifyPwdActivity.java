@@ -1,4 +1,4 @@
-package com.example.zhangqi.charge.server.forgot_password;
+package com.example.zhangqi.charge.ui.user.forgot_password;
 
 import android.view.View;
 import android.widget.Button;
@@ -7,7 +7,7 @@ import android.widget.TextView;
 
 import com.example.zhangqi.charge.R;
 import com.example.zhangqi.charge.mvp.activity.SimpleBaseActivity;
-import com.example.zhangqi.charge.server.login.LoginActivity;
+import com.example.zhangqi.charge.ui.user.login.LoginActivity;
 
 import at.markushi.ui.CircleButton;
 import butterknife.Bind;

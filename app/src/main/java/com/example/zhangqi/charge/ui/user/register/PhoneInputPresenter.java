@@ -1,4 +1,4 @@
-package com.example.zhangqi.charge.server.register;
+package com.example.zhangqi.charge.ui.user.register;
 
 import android.content.Context;
 
