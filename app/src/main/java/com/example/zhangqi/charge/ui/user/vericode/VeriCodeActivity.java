@@ -1,4 +1,4 @@
-package com.example.zhangqi.charge.ui.user.register;
+package com.example.zhangqi.charge.ui.user.vericode;
 
 import android.os.Bundle;
 import android.view.View;
@@ -8,7 +8,9 @@ import android.widget.TextView;
 import com.dd.CircularProgressButton;
 import com.example.zhangqi.charge.R;
 import com.example.zhangqi.charge.mvp.activity.SimpleBaseActivity;
+import com.example.zhangqi.charge.ui.user.forgot_password.ModifyPwdActivity;
 import com.example.zhangqi.charge.ui.user.login.LoginActivity;
+import com.example.zhangqi.charge.ui.user.register.InfoInputActivity;
 import com.example.zhangqi.charge.util.VerificationCodeInputUtil;
 
 import butterknife.Bind;
@@ -147,9 +149,7 @@ public class VeriCodeActivity extends SimpleBaseActivity implements View.OnClick
         public void onNext(Integer s) {
             if (s == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
 
-                Message("提交验证码成功");
-                bundle.putString("phone", phone);
-                startActivityWithData(VeriCodeActivity.this,InfoInputActivity.class,bundle);
+                startActivity();
 
             } else if (s == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
 
@@ -160,5 +160,16 @@ public class VeriCodeActivity extends SimpleBaseActivity implements View.OnClick
             }
         }
     };
+
+    private void startActivity(){
+        Message("提交验证码成功");
+        bundle.putString("phone", phone);
+
+        if(this.getIntent().getExtras().getString("context").equals("PhoneInputActivity")){
+            startActivityWithData(VeriCodeActivity.this,InfoInputActivity.class,bundle);
+        }else if(this.getIntent().getExtras().getString("context").equals("UserIsExistActivity")){
+            startActivityWithData(VeriCodeActivity.this,ModifyPwdActivity.class,bundle);
+        }
+    }
 
 }

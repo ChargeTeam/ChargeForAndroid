@@ -2,6 +2,7 @@ package com.example.zhangqi.charge.api;
 
 
 import com.example.zhangqi.charge.bean.HttpWrapper;
+import com.example.zhangqi.charge.bean.SingleParams;
 import com.example.zhangqi.charge.bean.User;
 
 import retrofit2.http.Field;
@@ -33,6 +34,25 @@ public interface Api {
     @FormUrlEncoded
     @POST("user/register.action")
     Observable<HttpWrapper<User>> register(@Field("phone") String phone, @Field("password") String pwd);
+
+    /**
+     * 判断该手机号是否已注册
+     * @param phone
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("user/userIsExist.action")
+    Observable<HttpWrapper<SingleParams>> userIsExist(@Field("phone") String phone);
+
+    /**
+     * 修改密码
+     * @param phone
+     * @param newPwd
+     * @return
+     */
+    @FormUrlEncoded
+    @POST("user/forget.action")
+    Observable<HttpWrapper<SingleParams>> modifyPassword(@Field("phone") String phone, @Field("newPwd") String newPwd);
 
 }
 

@@ -1,4 +1,4 @@
-package com.example.zhangqi.charge.ui.user.register;
+package com.example.zhangqi.charge.ui.user.forgot_password;
 
 import android.os.Bundle;
 import android.view.View;
@@ -17,10 +17,10 @@ import butterknife.Bind;
 import static com.google.gson.internal.$Gson$Preconditions.checkNotNull;
 
 /**
- * Created by Laiyin on 2017/5/25.
+ * Created by Laiyin on 2017/5/31.
  */
 
-public class PhoneInputActivity extends SimpleBaseActivity implements View.OnClickListener, PhoneInputContract.View {
+public class UserIsExistActivity extends SimpleBaseActivity implements UserIsExistContract.View,View.OnClickListener{
 
     @Bind(R.id.et_phone)
     EditText etPhone;
@@ -33,21 +33,11 @@ public class PhoneInputActivity extends SimpleBaseActivity implements View.OnCli
 
     Bundle bundle;
 
-    private PhoneInputContract.Presenter mPresenter;
+    private UserIsExistContract.Presenter mPresenter;
 
     @Override
     protected void initData() {
         bundle = new Bundle();
-    }
-
-    @Override
-    protected void attachPre() {
-        new PhoneInputPresenter(this, mCompositeSubscription);
-    }
-
-    @Override
-    protected int getLayoutId() {
-        return R.layout.register_layout_activity;
     }
 
     @Override
@@ -78,15 +68,29 @@ public class PhoneInputActivity extends SimpleBaseActivity implements View.OnCli
     }
 
     @Override
-    public void setPresenter(PhoneInputContract.Presenter presenter) {
-        mPresenter = checkNotNull(presenter);
+    public void setPresenter(UserIsExistContract.Presenter presenter) {
+        mPresenter=checkNotNull(presenter);
     }
 
     @Override
-    public void registerState() {
+    public void userIsExist() {
         bundle.putString("phone", etPhone.getText().toString());
-        bundle.putString("context","PhoneInputActivity");
+        bundle.putString("context","UserIsExistActivity");
+        startActivityWithData(this, VeriCodeActivity.class, bundle);
+    }
 
-        startActivityWithData(this, VeriCodeActivity.class,bundle);
+    @Override
+    public void userIsNotExist() {
+        Message("用户不存在");
+    }
+
+    @Override
+    protected void attachPre() {
+        new UserIsExistPresenter(this,mCompositeSubscription);
+    }
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.register_layout_activity;
     }
 }

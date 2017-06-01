@@ -6,9 +6,8 @@ package com.example.zhangqi.charge.constant;
 
 public class Constant {
 
-
     public static final String SIGN = "jhh";
-    public static String BASEURL = "http://www.onionsss.com:8080/onion/";
+    public static String BASEURL = "http://106.14.223.93:8080/onion/";
     /**
      * 错误
      */

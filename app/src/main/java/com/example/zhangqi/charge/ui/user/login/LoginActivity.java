@@ -13,6 +13,7 @@ import com.example.zhangqi.charge.bean.User;
 import com.example.zhangqi.charge.constant.UserConstant;
 import com.example.zhangqi.charge.global.AppCenter;
 import com.example.zhangqi.charge.mvp.activity.SimpleBaseActivity;
+import com.example.zhangqi.charge.ui.user.forgot_password.UserIsExistActivity;
 import com.example.zhangqi.charge.ui.user.register.PhoneInputActivity;
 
 import butterknife.Bind;
@@ -64,6 +65,7 @@ public class LoginActivity extends SimpleBaseActivity implements LoginContract.V
                 startActivity(this, PhoneInputActivity.class);
                 break;
             case R.id.tv_forgot_password:
+                startActivity(this, UserIsExistActivity.class);
                 break;
             default:
                 break;

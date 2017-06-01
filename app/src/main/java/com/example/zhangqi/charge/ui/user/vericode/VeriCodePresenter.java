@@ -1,4 +1,4 @@
-package com.example.zhangqi.charge.ui.user.register;
+package com.example.zhangqi.charge.ui.user.vericode;
 
 import android.content.Context;
 

@@ -1,4 +1,4 @@
-package com.example.zhangqi.charge.ui.user.register;
+package com.example.zhangqi.charge.ui.user.vericode;
 
 import com.example.zhangqi.charge.mvp.presenter.BasePresenter;
 import com.example.zhangqi.charge.mvp.view.BaseView;
