@@ -13,6 +13,16 @@ public class LoginContract {
     interface View extends BaseView<Presenter>{
 
         void loginSuccess(User user);
+
+        /**
+         * 登陆失败 密码错误
+         */
+        void pwdError();
+
+        /**
+         * 登陆失败 账号错误
+         */
+        void phoneError();
     }
 
     interface Presenter extends BasePresenter{

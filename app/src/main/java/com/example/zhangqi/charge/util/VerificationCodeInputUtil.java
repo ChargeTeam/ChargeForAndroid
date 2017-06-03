@@ -59,21 +59,17 @@ public class VerificationCodeInputUtil extends ViewGroup {
         boxBgNormal = a.getDrawable(com.dalimao.corelibrary.R.styleable.vericationCodeInput_box_bg_normal);
         inputType = a.getString(com.dalimao.corelibrary.R.styleable.vericationCodeInput_inputType);
         initViews();
-
     }
 
 
     @Override
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-
     }
 
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-
-
     }
 
     private void initViews() {
@@ -100,7 +96,6 @@ public class VerificationCodeInputUtil extends ViewGroup {
             }
 
         };
-
 
         OnKeyListener onKeyListener = new OnKeyListener() {
             @Override
@@ -133,6 +128,16 @@ public class VerificationCodeInputUtil extends ViewGroup {
             setBg(editText, false);
             editText.setLayoutParams(layoutParams);
             editText.setGravity(Gravity.CENTER);
+//            editText.setOnClickListener(new OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    if(editText.getText().length() == 1){
+//                        editText.requestFocus();
+//                        editText.setSelection(2);
+//                    }
+//
+//                }
+//            });
             editText.setFilters(new InputFilter[]{new InputFilter.LengthFilter(1)});
             editText.setTextSize(28);
 
@@ -150,11 +155,7 @@ public class VerificationCodeInputUtil extends ViewGroup {
             editText.setEms(1);
             editText.addTextChangedListener(textWatcher);
             addView(editText, i);
-
-
         }
-
-
     }
 
     private void backFocus() {
@@ -182,6 +183,22 @@ public class VerificationCodeInputUtil extends ViewGroup {
         }
     }
 
+    public void reset() {
+        setEnabled(true);
+        int count = getChildCount();
+        EditText editText;
+        for (int i = 0; i < count; i++) {
+            editText = (EditText) getChildAt(i);
+            editText.setText("");
+            if (i == 0) {
+                editText.requestFocus();
+                editText.setSelection(0);
+            }
+
+//            backFocus();
+        }
+    }
+
     private void setBg(EditText editText, boolean focus) {
         if (boxBgNormal != null && !focus) {
             editText.setBackground(boxBgNormal);
@@ -202,7 +219,6 @@ public class VerificationCodeInputUtil extends ViewGroup {
             } else {
                 stringBuilder.append(content);
             }
-
         }
         Log.d(TAG, "checkAndCommit:" + stringBuilder.toString());
         if (full) {
@@ -273,7 +289,6 @@ public class VerificationCodeInputUtil extends ViewGroup {
             int cb = ct + cHeight;
             child.layout(cl, ct, cr, cb);
         }
-
 
     }
 

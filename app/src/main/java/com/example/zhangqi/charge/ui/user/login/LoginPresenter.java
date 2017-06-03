@@ -46,6 +46,13 @@ public class LoginPresenter implements LoginContract.Presenter {
 
                     @Override
                     protected void onFaild(HttpWrapper<User> o) {
+                        if(o.getCode()=="201"){
+                            if(o.getInfo()=="账户不存在"){
+                                mView.phoneError();
+                            }else if(o.getInfo()=="密码错误"){
+                                mView.pwdError();
+                            }
+                        }
                         mView.dissDialog();
                     }
                 }));

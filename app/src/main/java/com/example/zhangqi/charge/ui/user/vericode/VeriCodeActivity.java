@@ -7,6 +7,7 @@ import android.widget.TextView;
 
 import com.dd.CircularProgressButton;
 import com.example.zhangqi.charge.R;
+import com.example.zhangqi.charge.bean.VeriCodeResult;
 import com.example.zhangqi.charge.mvp.activity.SimpleBaseActivity;
 import com.example.zhangqi.charge.ui.user.forgot_password.ModifyPwdActivity;
 import com.example.zhangqi.charge.ui.user.login.LoginActivity;
@@ -50,7 +51,7 @@ public class VeriCodeActivity extends SimpleBaseActivity implements View.OnClick
 
     @Override
     protected void initView() {
-        bundle=new Bundle();
+        bundle = new Bundle();
         phone = this.getIntent().getExtras().getString("phone");
         /**
          * 请求发送验证码
@@ -108,6 +109,7 @@ public class VeriCodeActivity extends SimpleBaseActivity implements View.OnClick
                 mPresenter.submit(veriCode, phone);
                 break;
             case R.id.tv_terms_resend:
+                vericode.reset();
                 break;
             case R.id.tv_terms:
                 break;
@@ -127,14 +129,15 @@ public class VeriCodeActivity extends SimpleBaseActivity implements View.OnClick
     EventHandler eh = new EventHandler() {
         @Override
         public void afterEvent(int event, int result, Object data) {
-            Observable.just(event)
+            Observable.just(new VeriCodeResult(event, result, data))
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(observer);
         }
     };
 
-    private Observer<Integer> observer = new Observer<Integer>() {
+    private Observer<VeriCodeResult> observer = new Observer<VeriCodeResult>() {
+
         @Override
         public void onCompleted() {
 
@@ -146,29 +149,33 @@ public class VeriCodeActivity extends SimpleBaseActivity implements View.OnClick
         }
 
         @Override
-        public void onNext(Integer s) {
-            if (s == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
+        public void onNext(VeriCodeResult result) {
+            if (result.getEvent() == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
+                if (result.getResult() == 0) {
+                    Message("验证失败");
+                } else {
+                    startActivity();
+                }
 
-                startActivity();
-
-            } else if (s == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
+            } else if (result.getEvent() == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
 
                 Message("获取验证码成功");
 
-            } else if (s == SMSSDK.EVENT_GET_SUPPORTED_COUNTRIES) {
+            } else if (result.getEvent() == SMSSDK.EVENT_GET_SUPPORTED_COUNTRIES) {
                 //返回支持发送验证码的国家列表
             }
         }
     };
 
-    private void startActivity(){
+    private void startActivity() {
+
         Message("提交验证码成功");
         bundle.putString("phone", phone);
 
-        if(this.getIntent().getExtras().getString("context").equals("PhoneInputActivity")){
-            startActivityWithData(VeriCodeActivity.this,InfoInputActivity.class,bundle);
-        }else if(this.getIntent().getExtras().getString("context").equals("UserIsExistActivity")){
-            startActivityWithData(VeriCodeActivity.this,ModifyPwdActivity.class,bundle);
+        if (this.getIntent().getExtras().getString("context").equals("PhoneInputActivity")) {
+            startActivityWithData(VeriCodeActivity.this, InfoInputActivity.class, bundle);
+        } else if (this.getIntent().getExtras().getString("context").equals("UserIsExistActivity")) {
+            startActivityWithData(VeriCodeActivity.this, ModifyPwdActivity.class, bundle);
         }
     }
 

@@ -24,7 +24,7 @@ import static com.google.gson.internal.$Gson$Preconditions.checkNotNull;
  * Created by Laiyin on 2017/5/25.
  */
 
-public class LoginActivity extends SimpleBaseActivity implements LoginContract.View ,View.OnClickListener{
+public class LoginActivity extends SimpleBaseActivity implements LoginContract.View, View.OnClickListener {
 
     @Bind(R.id.et_username)
     EditText etUsername;
@@ -49,9 +49,20 @@ public class LoginActivity extends SimpleBaseActivity implements LoginContract.V
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.bt_sign_in:
-                mPresenter.login(etUsername.getText().toString(), etPassword.getText().toString());
+                if (etUsername.getText().toString() == "" && etPassword.getText().toString() == "") {
+                    Message("请输入账号");
+                } else if (etUsername.getText().toString() != "" && etPassword.getText().toString() == "") {
+                    Message("请输入密码");
+                } else if (etUsername.getText().toString() == "" && etPassword.getText().toString() != "") {
+                    Message("请输入账号");
+                } else {
+                    if(checkPhoneFormat(etUsername.getText().toString())&&checkPwdFormat(etPassword.getText().toString())){
+                        mPresenter.login(etUsername.getText().toString(), etPassword.getText().toString());
+                    }
+
+                }
                 break;
             case R.id.iv_qq:
                 break;
@@ -104,9 +115,65 @@ public class LoginActivity extends SimpleBaseActivity implements LoginContract.V
 
     @Override
     public void loginSuccess(User user) {
-        AppCenter.sSpUtil.putString(UserConstant.USER_ID,user.getUserId());
+        AppCenter.sSpUtil.putString(UserConstant.USER_ID, user.getUserId());
         Message("登录成功");
         startActivity(this, MainActivity.class);
     }
 
+    @Override
+    public void pwdError() {
+        etPassword.setText("");
+        etPassword.requestFocus();
+    }
+
+    @Override
+    public void phoneError() {
+        etUsername.setText("");
+        etUsername.requestFocus();
+    }
+
+    /**
+     * 检查手机号码格式 11位数字
+     *
+     * @param phone
+     * @return true-是手机号码；false-不是手机号码
+     */
+    public boolean checkPhoneFormat(String phone) {
+        if (phone.length() == 11) {
+            for (int i = 0; i < phone.length(); i++) {
+                char c = phone.charAt(i);
+                if (!Character.isDigit(c)) {
+//                    break; //只要有一位不符合要求退出循环
+                    Message("请输入11位数字");
+                    return false;
+                }
+            }
+        } else {
+            Message("请输入11位数字");
+            return false;
+        }
+        return true;
+    }
+
+    /**
+     * 密码框只允许输入6-12位英文或数字密码 其他无效
+     * @param pwd
+     * @return
+     */
+    public boolean checkPwdFormat(String pwd) {
+        if (6 <= pwd.length() && pwd.length() <= 12) {
+            for (int i = 0; i < pwd.length(); i++) {
+                char c = pwd.charAt(i);
+                if (!Character.isLetterOrDigit(c)) {
+//                    break; //只要有一位不符合要求退出循环
+                    Message("请输入6-12位英文或数字");
+                    return false;
+                }
+            }
+        } else {
+            Message("请输入6-12位英文或数字");
+            return false;
+        }
+        return true;
+    }
 }
