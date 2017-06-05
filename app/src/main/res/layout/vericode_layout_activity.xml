@@ -47,6 +47,7 @@
         ver:box_bg_normal="@drawable/vericode_edit_bg_normal"
         ver:box="4"
         ver:child_h_padding="20dp"
+        ver:inputType="date"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         />

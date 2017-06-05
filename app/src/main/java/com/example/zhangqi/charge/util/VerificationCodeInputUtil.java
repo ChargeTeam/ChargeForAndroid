@@ -35,6 +35,7 @@ public class VerificationCodeInputUtil extends ViewGroup {
     private final static String TYPE_NUMBER = "number";
     private final static String TYPE_TEXT = "text";
     private final static String TYPE_PASSWORD = "password";
+    private final static String TYPE_DATE = "date";
     private final static String TYPE_PHONE = "phone";
 
     private static final String TAG = "VerificationCodeInput";
@@ -43,7 +44,7 @@ public class VerificationCodeInputUtil extends ViewGroup {
     private int boxHeight = 165;
     private int childHPadding = 14;
     private int childVPadding = 14;
-    private String inputType = TYPE_PASSWORD;
+    private String inputType = TYPE_DATE;
     private Drawable boxBgFocus = null;
     private Drawable boxBgNormal = null;
     private Listener listener;
@@ -58,6 +59,7 @@ public class VerificationCodeInputUtil extends ViewGroup {
         boxBgFocus = a.getDrawable(com.dalimao.corelibrary.R.styleable.vericationCodeInput_box_bg_focus);
         boxBgNormal = a.getDrawable(com.dalimao.corelibrary.R.styleable.vericationCodeInput_box_bg_normal);
         inputType = a.getString(com.dalimao.corelibrary.R.styleable.vericationCodeInput_inputType);
+
         initViews();
     }
 
@@ -149,7 +151,8 @@ public class VerificationCodeInputUtil extends ViewGroup {
                 editText.setInputType(InputType.TYPE_CLASS_TEXT);
             } else if (TYPE_PHONE.equals(inputType)) {
                 editText.setInputType(InputType.TYPE_CLASS_PHONE);
-
+            }else if (TYPE_DATE.equals(inputType)) {
+                editText.setInputType(InputType.TYPE_CLASS_DATETIME);
             }
             editText.setId(i);
             editText.setEms(1);

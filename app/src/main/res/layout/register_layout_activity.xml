@@ -34,7 +34,7 @@
         android:background="@null"
         android:layout_marginLeft="5dp"
         android:hint="phone"
-        android:inputType="phone"
+        android:inputType="date"
         android:maxLines="1"
         android:textColor="@color/colorGray2"
         android:textColorHint="@color/colorGray2"

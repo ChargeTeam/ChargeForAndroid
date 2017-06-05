@@ -34,6 +34,7 @@
         android:background="@null"
         android:hint="Phone"
         android:maxLines="1"
+        android:inputType="date"
         android:textColor="@color/colorGray2"
         android:textColorHint="@color/colorGray2"
         android:textCursorDrawable="@null"
